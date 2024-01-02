@@ -23,7 +23,7 @@ An experiment was conducted with the CartPole domain, but it was deemed unsucces
 ### Contact for Code Clarifications
 
 - Aparajith Raghuvir: Email [araghuvir@umass.edu](mailto:araghuvir@umass.edu)
-- Karthikay Gupta: Email [kartikaygupt@umass.edu](mailto:kartikaygupt@umass.edu)
+- Kartikay Gupta: Email [kartikaygupt@umass.edu](mailto:kartikaygupt@umass.edu)
 
 ### Post Script:
 
