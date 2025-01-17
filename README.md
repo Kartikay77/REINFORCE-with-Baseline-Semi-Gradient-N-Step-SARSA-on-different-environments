@@ -1,6 +1,6 @@
 # Project: Semi Gradient N Step SARSA and REINFORCE with Baseline
 
-This project involves the independent implementation of two reinforcement learning (RL) algorithms, Episodic Semi-Gradient N Step SARSA and REINFORCE with Baseline, carried out by Aparajith Raghuvir and Karthikay Gupta, respectively. The following sections provide an overview of each algorithm and the specific domains they were applied to.
+This project involves the independent implementation of two reinforcement learning (RL) algorithms, Episodic Semi-Gradient N Step SARSA and REINFORCE with Baseline, carried out by and Kartikay Gupta, respectively. The following sections provide an overview of each algorithm and the specific domains they were applied to.
 
 ## Overview
 
