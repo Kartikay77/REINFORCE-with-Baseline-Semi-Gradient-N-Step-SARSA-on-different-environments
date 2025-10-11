@@ -260,5 +260,62 @@ This result highlights the difficulty of applying REINFORCE-based policy gradien
 - **Long-term dependencies** that require strategic momentum building
 
 Unlike value-based methods such as SARSA or Q-learning, REINFORCE relies on full Monte Carlo returns, making it harder to learn in environments where the reward signal is delayed. Figure RL11 reinforces that **policy gradient methods require more sophisticated exploration strategies** or advanced techniques (e.g., actor-critic methods) to perform well in Mountain Car.
+--
+---
+
+## 🚀 How to Run
+
+### ▶️ Run N-Step SARSA on 687 GridWorld
+```bash
+python gridworld_sarsa.py
+```
+▶️ Run REINFORCE with Baseline on CartPole
+
+```
+python REINFORCE_Baseline_cartpole_main.ipynb
+```
+▶️ Run REINFORCE with Baseline on MountainCar
+```
+python mountaincar_reinforce.py
+```
+
+---
+## 📊 Algorithm Comparison Summary
+
+| Feature                | N-Step SARSA                          | REINFORCE with Baseline                     |
+|------------------------|----------------------------------------|---------------------------------------------|
+| Type                   | Value-based TD Learning               | Policy Gradient (Monte Carlo)               |
+| Bootstrapping          | ✅ Yes                                 | ❌ No (full return based)                   |
+| Policy Optimization    | ❌ Indirect (via value updates)        | ✅ Direct policy optimization                |
+| Baseline Used          | ❌ No                                  | ✅ Yes (reduces variance)                   |
+| Variance               | Low                                   | High (reduced with baseline)                |
+| Convergence Behavior   | Stable and smooth                     | Sensitive to hyperparameters                |
+| Exploration Strategy   | ε-greedy                               | Gaussian/Softmax (policy-driven)            |
+| Best Performance On    | ✅ 687 GridWorld                       | ✅ CartPole                                 |
+| Struggles On           | ❌ Continuous control tasks           | ❌ MountainCar (sparse rewards)             |
+
+---
+
+## ✅ Conclusion
+
+- **N-Step Semi-Gradient SARSA** demonstrated **stable convergence** with minimal hyperparameter tuning and performed well in discrete environments like **687 GridWorld**.
+- **REINFORCE with Baseline** successfully **optimized the policy directly**, performing strongly on **CartPole** and achieving a reward of **500 within 100 episodes**.
+- **Monte Carlo policy gradients are highly sensitive to hyperparameters** such as learning rate and discount factor.
+- **REINFORCE struggled in sparse reward environments like MountainCar**, even with baseline variance reduction, due to lack of temporal credit assignment.
+- Overall, **value-based methods like SARSA show better stability**, while **policy gradient methods can outperform when tuned but require careful control**.
+
+---
+
+## 🚧 Limitations & Future Work
+
+| Limitation                                                                 | Future Work                                                                 |
+|----------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| REINFORCE failed on MountainCar due to sparse rewards                      | Try **Advantage Actor-Critic (A2C)** or **Proximal Policy Optimization**   |
+| No function approximation beyond simple linear models                     | Extend using **Deep Neural Networks (Deep RL)**                            |
+| High variance in returns for policy gradients                             | Use **Generalized Advantage Estimation (GAE)**                             |
+| Limited environments tested                                                | Test on **Acrobot, LunarLander, and Atari games**                          |
+| No exploration schedule decay                                              | Add **ε decay** or **entropy regularization** in policy learning           |
+| No reward shaping                                                          | Use **potential-based reward shaping** for MountainCar                     |
+
 
 
