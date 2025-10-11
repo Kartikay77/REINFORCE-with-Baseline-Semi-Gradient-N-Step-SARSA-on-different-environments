@@ -236,4 +236,29 @@ The learning curve shows rapid improvement during the first 200 episodes, follow
 
 ---
 
+### ✅ Mountain Car – REINFORCE with Baseline (Without Hyperparameter Tuning)
+
+**Figure RL10 – Average Reward without Hyperparameter Tuning (Mountain Car)**  
+![RL10](https://github.com/Kartikay77/REINFORCE-with-Baseline-Semi-Gradient-N-Step-SARSA-on-different-environments/blob/main/RL10.png)
+This plot shows the average reward progression of the REINFORCE with Baseline algorithm applied to the Mountain Car environment **before any hyperparameter tuning**. The reward remains constant at **–200** across all 1000 episodes, indicating that the agent fails to learn any meaningful policy.
+
+Mountain Car is a sparse reward environment where the agent only receives a reward of **–1 per timestep** until it reaches the goal, making it difficult to learn without carefully tuned parameters. With default or poorly chosen hyperparameters, the policy gradient updates fail to produce useful behavior, and the agent never manages to escape the initial valley. As a result, each episode terminates at the maximum step limit, producing the worst possible return of –200 consistently.
+
+This figure highlights the **importance of hyperparameter tuning** in policy gradient methods, especially for challenging control tasks like Mountain Car. Without tuning parameters such as learning rate (θ), baseline step size (ω), exploration noise (σ), and number of tile codings, REINFORCE struggles to explore effectively and cannot improve performance.
+
+---
+
+### ✅ Mountain Car – REINFORCE with Baseline (With Hyperparameter Tuning)
+
+**Figure RL11 – Training Performance After Hyperparameter Tuning (Mountain Car)**  
+![RL11](RL11.png)  
+This plot shows the performance of the REINFORCE with Baseline algorithm on the Mountain Car environment **after applying hyperparameter tuning**. Despite tuning parameters such as the policy step size (θ), baseline step size (ω), discount factor (γ), and number of tilings, the agent still fails to make meaningful learning progress. The total reward remains constant at **–1** across all episodes, indicating that the car only moves a single timestep before the episode terminates.
+
+This result highlights the difficulty of applying REINFORCE-based policy gradient methods to Mountain Car. Even with tuned parameters and a value baseline to reduce variance, the agent struggles due to:
+- **Sparse rewards** (no positive reward until goal is reached)
+- **High variance in returns**
+- **Long-term dependencies** that require strategic momentum building
+
+Unlike value-based methods such as SARSA or Q-learning, REINFORCE relies on full Monte Carlo returns, making it harder to learn in environments where the reward signal is delayed. Figure RL11 reinforces that **policy gradient methods require more sophisticated exploration strategies** or advanced techniques (e.g., actor-critic methods) to perform well in Mountain Car.
+
 
